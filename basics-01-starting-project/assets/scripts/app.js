@@ -22,10 +22,21 @@ let calculationDescription = `${currentResult}` + ' = ' + initialValue + '\n + 1
 //Uses method from vendor.js
 outputResult(currentResult, calculationDescription);
 
+let logEntries = [];
+
 
 let finalResult = 100;
 function addition() {
-    finalResult = finalResult + userInput.value;
+    let initialValue = parseInt(finalResult);
+    finalResult =  initialValue + parseInt(userInput.value);
+    let logEntry = {
+        action: 'ADDITION',
+        initValue: initialValue,
+        input: userInput.value,
+        finResult: finalResult
+    }
+    logEntries.push(logEntry);
+    console.log(logEntries);
     outputResult(finalResult, `100 + ${userInput.value}`);
 }
 
